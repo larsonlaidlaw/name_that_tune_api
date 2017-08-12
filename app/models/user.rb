@@ -1,0 +1,4 @@
+class User < ApplicationRecord
+  has_many :lists
+  has_many :videos, through: :lists
+end
