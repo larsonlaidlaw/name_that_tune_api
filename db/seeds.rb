@@ -7,8 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: "larsonlaidlaw", email: "larson@gmail.com", password: "password")
+User.create(username: "jp", email: "jp@gmail.com", password: "password")
 
-List.create(user_id: 1)
+List.create(title: "Test List", user_id: 1)
 
 a = Video.create(video_title: "Kendrick Lamar - DNA", video_id: "NLZRYQMLDW4", video_channel: "Kendrick Lamar VEVO", list_id: 1)
 b = Video.create(video_title: "Kanye West - Monster", video_id: "yctBp6n8ROo", video_channel: "Kanye West VEVO", list_id: 1)

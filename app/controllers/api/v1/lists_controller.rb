@@ -8,7 +8,11 @@ class Api::V1::ListsController < ApplicationController
   end
 
   def create
-    byebug
+    
+  end
+
+  def update
+
   end
 
   private
