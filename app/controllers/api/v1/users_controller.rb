@@ -7,7 +7,7 @@ class Api::V1::UsersController < ApplicationController
     user = User.create(user_params)
     if user.save
       created_jwt = issue_token({id: user.id})
-      render json: {username: user.username,jwt: created_jwt}, status: 200
+      render json: {username: user.username,jwt: created_jwt, id: user.id}, status: 200
     else
       render json: {
         error: 'User either exists or your password sucks'
