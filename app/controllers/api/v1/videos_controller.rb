@@ -9,11 +9,18 @@ class Api::V1::VideosController < ApplicationController
   end
 
   def create
-    new_list = List.create(title: params['payload']['title'], user_id: params['payload']['user_id'])
+    if !params["payload"]["list_id"] || params["payload"]["list_id"] == 'new'
+      new_list = List.create(title: params['payload']['title'], user_id: params['payload']['user_id'])
+      list_id = new_list.id
+    else
+      list_id = params["payload"]["list_id"].to_i
+    end
     params['payload']['videos'].each do |video|
-      Video.create(video_title: video["video_title"], video_id: video["video_id"], video_channel: video["video_channel"], list_id: new_list.id )
+      Video.create(video_title: video["video_title"], video_id: video["video_id"], video_channel: video["video_channel"], list_id: list_id )
     end
   end
+
+
 
   private
   def video_params
