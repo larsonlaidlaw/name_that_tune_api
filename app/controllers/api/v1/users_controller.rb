@@ -1,6 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   def show
-    render json: User.find(params[:id])
+    render json: User.find(params[:id]), include: ['lists.videos']
   end
 
   def create
@@ -15,7 +15,7 @@ class Api::V1::UsersController < ApplicationController
     end
   end
 
-  def index 
+  def index
     render json: User.all
   end
 

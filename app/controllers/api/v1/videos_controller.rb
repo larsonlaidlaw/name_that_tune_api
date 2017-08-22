@@ -16,15 +16,21 @@ class Api::V1::VideosController < ApplicationController
       list_id = params["payload"]["list_id"].to_i
     end
     params['payload']['videos'].each do |video|
-      Video.create(video_title: video["video_title"], video_id: video["video_id"], video_channel: video["video_channel"], list_id: list_id )
+      Video.create(video_title: video["video_title"], video_id: video["video_id"], video_channel: video["video_channel"], thumbnail_url: video["thumbnail_url"], list_id: list_id )
     end
+  end
+
+  def destroy
+    video = Video.find(params["payload"])
+    video.destroy
+    render json: {}, status: 200
   end
 
 
 
   private
   def video_params
-    params.require(:video).permit(:video_title, :video_id, :video_channel)
+    params.require(:video).permit(:video_title, :video_id, :video_channel, :thumbnail_url, :id)
   end
 
 end

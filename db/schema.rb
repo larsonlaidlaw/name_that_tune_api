@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20170811153556) do
     t.string "video_title"
     t.string "video_id"
     t.string "video_channel"
+    t.string "thumbnail_url"
     t.bigint "list_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
